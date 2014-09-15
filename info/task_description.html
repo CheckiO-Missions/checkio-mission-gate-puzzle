@@ -27,7 +27,7 @@
 
 <p>
     You are given a message.
-    You need to pick out all words (a consecutive sequence of letters),
+    You need to pick out all words (a consecutive sequence of letters or a single letter),
     calculate "likeness" coefficients with other words, take an average of them and choose the greatest.
     If several words has the same result value, then choose the last in the message from them.
     Words in the message can be separated by whitespaces and punctuation. There are no numbers.
@@ -35,14 +35,20 @@
 <p>
     "Likeness" coefficient for two words is measured in percentages with the next rules:<br>
     - Letter case does not have matter ("A" == "a");<br>
-    - If first letters of the words are equal, then add 10%;
-    - If last letters of the words are equal, then add 10%;
+
+    - If first letters of the words are equal, then add 10%;<br>
+
+    - If last letters of the words are equal, then add 10%;<br>
+
     - Add length comparison as (length_of_word1&nbsp;/&nbsp;length_of_word2)&nbsp;*&nbsp;30%, where
     length_of_word1&nbsp;&le;&nbsp;length_of_word2;<br>
+
     - Take all unique letters from the both words in one set and
-    count how many letters appear in the both words.<br>
+    count how many letters appear in the both words.
     Add to coefficient (common_letter_number&bnsp/unique_letters_numbers)&nbsp;*&nbsp;50;<br>
+
     So the maximum coefficient of likeness is 100%. For example for words "Bread" and "Beard".
+    Count "likeness" coefficient even for the same word (of course it's 100).
 </p>
 
 <p>
