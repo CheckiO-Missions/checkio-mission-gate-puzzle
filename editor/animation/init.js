@@ -40,10 +40,10 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210', 'snap.svg_030'],
             }
 
             //YOUR FUNCTION NAME
-            var fname = 'checkio';
+            var fname = 'find_word';
 
-            var checkioInput = data.in;
-            var checkioInputStr = fname + '(' + JSON.stringify(checkioInput) + ')';
+            var checkioInput = data.in || "Speak friend and enter.";
+            var checkioInputStr = fname + '(u' + JSON.stringify(checkioInput) + ')';
 
             var failError = function (dError) {
                 $content.find('.call').html(checkioInputStr);
