@@ -121,5 +121,5 @@ find_word("Speak friend and enter.") == "friend"
 <p>
     <strong>Precondition:</strong><br>
     0 &lt; len(message)<br>
-    all(x in (string.ascii_letters + string.punctuation) for x in message)
+    all(x in (string.ascii_letters + string.punctuation + " ") for x in message)
 </p>
