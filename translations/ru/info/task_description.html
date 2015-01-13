@@ -1,82 +1,73 @@
 <div class="story">
     <p>
-        Aoccdrnig to a rscheearch at Cmabrigde Uinervtisy, it deosn't mttaer in waht oredr the
-        ltteers in a wrod are,
-        the olny iprmoetnt tihng is taht the frist and lsat ltteer be at the rghit pclae. The rset
-        can be a toatl mses
-        and you can sitll raed it wouthit porbelm. Tihs is bcuseae the huamn mnid deos not raed
-        ervey lteter by istlef,
-        but the wrod as a wlohe.<br>
-        -- Unknown Author.
+        По рзелульаттам илссеовадний одонго анлигйсокго унвиертисета, не иеемт 
+        занчнеия, в кокам пряокде рсапожолены бкувы в солве. Галвоне, чотбы 
+        преавя и пслоендяя бквуы блыи на мсете. Осатьлыне бкувы мгоут селдовтаь 
+        в плоонм бсепордяке, все-рвано ткест чтаитсея без побрелм. 
+        Пичрионй эгото ялвятеся то, что мы не чиатем кдаужю бкуву по 
+        отдльенотси, а все солво цликеом. .<br>
+        -- Неизвестный автор.
     </p>
 
     <p>
         "Ennyn Durin Aran Moria. Pedo mellon a Minno. Im Narvi hain echant. Celebrimbor o Eregion
-        tethant. I thiw
-        hin"<br>
-        "The Doors of Durin, Lord of Moria. Speak friend and enter. I Narvi made them. Celebrimbor
-        of Hollin drew these
-        signs."<br>
-        -- "The Fellowship of the Ring" J. R. Tolkien
+        tethant. I thiwhin"<br>
+        "Врата Дарина, Лорда Мории. Скажи "друг" и войди. Я, Нарви, сделал их. 
+        Келебримбор из Эрегиона начертал эти знаки<br>
+        -- "Братство кольца" Д. Р. Толкиен
     </p>
 </div>
 
 <p>
-    Двери Дарина были открыты Гэндальфом и Братство вошло в
-    <a href="http://en.wikipedia.org/wiki/Moria_(Middle-earth)">Морию</a>.
-    As they found, this underground kingdom has gates on every passageway. Each gate has a written
-    message which
-    contains the key word. Luckily, Gimli knows how to recognize the key in these messages. It's the
-    most "like" word,
-    which has the greatest average "likeness" coefficient with other words in the message.
-</p>
-
-<p>
-    You are given a message. You need to pick out all words (a consecutive sequence of letters or a
-    single letter),
-    calculate the "likeness" coefficients with other words, take an average of them and choose the
-    greatest. Count
-    "likeness" coefficient even for the same words (of course it's 100). If several words have the
-    same resulting value,
-    then choose the word closest to the end of the message. Words in the message can be separated by
-    whitespaces and
-    punctuation. There are no numbers.
+    Врата Дарина были открыты Гэндальфом и Братство вошло в
+    <a href="http://ru.wikipedia.org/wiki/%D0%9C%D0%BE%D1%80%D0%B8%D1%8F">Морию</a>.
+    Как они выяснили, это подземное королевство имело врата у каждого входа. Каждые врата
+    имели начертанную фразу, содержащую ключевое слово. 
+    К счастью, Гимли знает, как распознать это слово. Это наиболее "похожее" слово,
+    которое имеет наибольший средний  коэффициент "похожести" с другими словами в фразе.
 </p>
 <p>
-    "Likeness" coefficient for two words is measured in percentages using the following rules:<br>
-    - Letter case does not matter ("A" == "a");<br>
+    Дана фраза. Вам нужно выбрать все слова (последовательность букв или одна буква),
+    посчитать коэффициент "похожести" с другими словами, взять его среднее значение и выбрать 
+    максимальное значение. Считайте коэффициент "похожести" даже для одинаковых слов (конечно он равен 100). 
+    Если несколько слов имеют одинаковое значение, тогда выберите слово, расположенное ближе к концу фразы. 
+    Слова во фразе могут быть разделены пробелами и пунктуацией. Цифр нет.
+</p>
+<p>
+    Коэффициент похожести для двух слов измеряется в процентах по следующим правилам:<br>
+    - Регистр не важен ("A" == "a");<br>
 
-    - If the first letters of the words are equal, then add 10%;<br>
+    - Если первые буквы слов одинаковые - добавьте 10%;<br>
 
-    - If the last letters of the words are equal, then add 10%;<br>
+    - Если последние буквы слов одинаковы - добавьте 10%;<br>
 
-    - Add length comparison as <br>
-    (length_of_word1&nbsp;/&nbsp;length_of_word2)&nbsp;*&nbsp;30%, if
-    length_of_word1&nbsp;&le;&nbsp;length_of_word2;<br>, else
+    - Добавьте сравнение длины <br>
+    (length_of_word1&nbsp;/&nbsp;length_of_word2)&nbsp;*&nbsp;30%, если
+    length_of_word1&nbsp;&le;&nbsp;length_of_word2;<br>, иначе
     (length_of_word2&nbsp;/&nbsp;length_of_word1)&nbsp;*&nbsp;30%<br>
 
-    - Take all unique letters from the both words in one set and count how many letters appear in
-    the both words. Add to
-    the coefficient (common_letter_number&nbsp;/&nbsp;unique_letters_numbers)&nbsp;*&nbsp;50;<br>
+    - Добавьте все уникальные буквы из обоих слов в одно множество и посчитайте их количество,
+    также посчитатайте сколько букв встречается одновременно в обоих словах. 
+    Добавьте к коэффициенту 
+    (common_letter_number&nbsp;/&nbsp;unique_letters_numbers)&nbsp;*&nbsp;50;<br>
     <br>
-    So the maximum coefficient of likeness is 100%. For example: for the words "Bread" and "Beard".
+    Таким образом максимальный коэффциент "похожести" равен 100%. Например: для слов "Bread" и "Beard".
 </p>
 
 <p>
-    The result should be given in the lower case.
+    Результат нужно возвратить в нижнем регистре.
 </p>
 <p>
-    Let's look at an example. The message "Friend Fred and friend Ted."
-    First, pick out words - ("friend", "fred", "and", "friend", "ted").
-    Next we calculate "likeness" for the first word with other.
-    "friend" and "fred" have the same first and last letters, so add 20.
-    Then length comparison: the length of "fred" is lesser than "friend", so add (4/6)*30=20.
-    The last rule: for these words unique letters are "definr" and the intersected letters are
-    "defr".
-    So add (4/6)*50&asymp;33.333. And the summary is 73.333.<br>
-    This way we will count all other coefficients and get the following table
-    (results are rounded just for simplicity). The greatest average is 62.976 and the result is
-    "friend".
+    Давайте рассмотрим пример. Фраза: "Friend Fred and friend Ted."
+    Во-первых, выберем слова - ("friend", "fred", "and", "friend", "ted").
+    Затем посчитаем "похожесть" первого слова и остальных.
+    "friend" и "fred" имеют одинаковые первые и последние буквы, т.е. добавляем 20.
+    Далее сравнение длины: длина "fred" меньше чем "friend", таким образом добавляем (4/6)*30=20.
+    Последнее правило: для этих слов уникальными буквами являются "definr" и пересекающимися буквами
+    являются "defr".
+    Таким образом (4/6)*50&asymp;33.333. И в сумме - 73.333.<br>
+    Таким же способом мы будем считать все другие коэффициенты и получим следующую таблицу
+    (результаты округлены для простоты). Наибольшее среднее - 62.976 и результат - "friend".
 </p>
 
 <pre>
@@ -88,22 +79,22 @@ and     | 39.286  | 40.833  | ------  | 39.286  | 50.0    |
 friend  | 100.0   | 73.333  | 39.286  | ------  | 39.286  |
 ted     | 39.286  | 52.5    | 50.0    | 39.286  | ------  |
 --------|---------|---------|---------|---------|---------|
-sum     | 251.905 | 239.999 | 169.405 | 251.905 | 181.072 |
-average | 62.976  | 60      | 42.351  | 62.976  | 45.268  |
+сумма   | 251.905 | 239.999 | 169.405 | 251.905 | 181.072 |
+среднее | 62.976  | 60      | 42.351  | 62.976  | 45.268  |
 
 </pre>
 <p>
-    <strong>Input: </strong> A message as a string (unicode)
+    <strong>Вход: </strong> Предложение как строка (unicode)
 </p>
 
 <p>
-    <strong>Output: </strong> The keyword as a string.
+    <strong>Выход: </strong> Слово как строка.
 </p>
 
 
 <div class="for_info_only">
     <p>
-        <strong>Example:</strong>
+        <strong>Пример:</strong>
     </p>
     <pre class="brush: python">
 find_word("Speak friend and enter.") == "friend"
@@ -111,15 +102,14 @@ find_word("Speak friend and enter.") == "friend"
 </div>
 
 <p class="for_info_only">
-    <strong>How it is used: </strong>
-    This is a fabricated algorithm which can be modified and be used for linguistic research and
-    text pattern
-    recognition.
+    <strong>Как это используется: </strong>
+    Это готовый алгоритм который может быть модифицирован и использован для лингвистических исследований
+    и распознования текстовых шаблонов.
 
 </p>
 
 <p>
-    <strong>Precondition:</strong><br>
+    <strong>Предусловие:</strong><br>
     0 &lt; len(message)<br>
     all(x in (string.ascii_letters + string.punctuation + " ") for x in message)
 </p>
