@@ -1,0 +1,121 @@
+<div class="story">
+    <p>
+        Solen une édute de l'Uinervtisy de  Cmabrigde, l'orrde des ltteres dnas un mot n'a pas d'ipmrotncae, la sluee cohse iprmoatnte
+        est que la perimrèe et la dreinrèe lttere snoeit à la bnone pclae. Le rsete puet êrte tatomlenet mnalégé, clea n'emhcêpe pas 
+        de lrie snas  porbêmle. C'est pcrae que l'eripst himuan ne lit pas cuqhae ltrete ivindiduelleenmt, 
+        mias le mot dnas sa taolitté.
+<br>
+-- Auteur inconnu.
+    </p>
+
+    <p>
+        "Ennyn Durin Aran Moria. Pedo mellon a Minno. Im Narvi hain echant. Celebrimbor o Eregion
+        tethant. I thiw
+        hin"<br>
+        "The Doors of Durin, Lord of Moria. Speak friend and enter. I Narvi made them. Celebrimbor
+        of Hollin drew these
+        signs."<br>
+        -- "The Fellowship of the Ring" J. R. Tolkien
+    </p>
+</div>
+
+<p>
+ Les Portes de Durin ont été ouvertes par Gandalf, et la Confrérie entra dans 
+    <a href="http://en.wikipedia.org/wiki/Moria_(Middle-earth)">Moria</a>.
+  Dans ce royaume souterrain, il y a un portail à chaque passage. Sur chaque portail, est écrit
+  un message qui contient le mot-clé.
+  Par chance, Gimli sait reconnaître le mot-clé dans ces messages.
+  C'est le mot le plus "ressemblant", ce qui signifie que c'est le mot qui a en moyenne
+  le "coefficient de ressemblance" avec les autres mots du message le plus élevé.
+</p>
+
+<p>
+ Un message vous est donné. Il faut en relever tous les mots (une suite de lettres consécutives, ou une lettre isolée),
+ calculer pour chaque mot le "coefficient de ressemblance" avec chacun des autres mots, en faire la moyenne, 
+ et choisir celui qui a la plus grande moyenne.
+ Il faut tenir compte dans cette moyenne du "coefficient de ressemblance" même si les mots sont identiques (il vaut alors 100).
+ Si l'on obtient le même résultat pour deux mots, on choisira le mot qui est le plus proche de la fin du message.
+ Les mots du message peuvent être séparés par des espaces ou des signes de ponctuation.
+ Il n'y a pas de nombres.
+</p>
+<p>
+Le "coefficient de ressemblance" entre deux mots se mesure en pourcentage selon les règles suivantes:<br>
+    - La casse des lettres (majuscule/minuscule) n'a pas d'importance ("A" == "a");<br>
+
+    - Si les premières lettres des mots sont égales, ajouter 10%;<br>
+
+    - Si les dernières lettres des mots sont égales, ajouter 10%;<br>
+
+    - Ajouter un pourcentage de comparaison de longueur comme suit: <br>
+    (longueur_du_mot1&nbsp;/&nbsp;longueur_du_mot2)&nbsp;*&nbsp;30%, si
+    longueur_du_mot1&nbsp;&le;&nbsp;longueur_du_mot1;<br>, sinon
+    (longueur_du_mot2&nbsp;/&nbsp;longueur_du_mot1)&nbsp;*&nbsp;30%<br>
+
+    - Considérer l'<em>ensemble</em> des lettres des deux mots (comptée chacune une fois), et compter combien de lettres 
+    (différentes) apparaissent à la fois dans les deux mots.
+    Ajouter au pourcentage le coefficient :<br>
+     (nombre_de_lettres_communes&nbsp;/&nbsp;nombre_total_de_lettres_differentes)&nbsp;*&nbsp;50;<br>
+    <br>
+    De cette façon, le "coefficient de ressemblance" maximal entre deux mots est 100%.
+    Par exemple, c'est le cas des mots "Bread" et "Beard".
+</p>
+
+<p>
+Le résultat devra être donné en lettres minuscules.
+</p>
+<p>
+Observons l'exemple du message "Friend Fred and friend Ted."
+Tout d'abord, récupérons les mots - ("friend", "fred", "and", "friend", "ted").
+Ensuite, calculons le "coeficient de ressemblance" du premier mot avec les autres mots:
+    "friend" et "fred" ont les mêmes première et dernière lettre, alors on ajoute 20.
+    Ensuite, vient la comparaison de longueur :
+    le mot "fred" est plus court que le mot "friend", alors ajoutons (4/6)*30=20.
+    Dernière règle : pour ces mots, les lettres utilisées sont "definr" et les lettres communes aux deux mots sont "defr".
+    Alors ajoutons (4/6)*50&asymp;33.333. Et la moyenne est 73.333.<br>
+    Nous calculons de la même façon tous les "coefficients de ressemblance", que nous rassemblons dans la table suivante
+    (les résultats sont arroundis pour simplifier). La plus grande moyenne est 62.976, et le résultat est
+    "friend".
+</p>
+
+<pre>
+        | friend  | fred    | and     | friend  | ted     |
+--------|---------|---------|---------|---------|---------|
+friend  | ------  | 73.333  | 39.286  | 100.0   | 39.286  |
+fred    | 73.333  | ------  | 40.833  | 73.333  | 52.5    |
+and     | 39.286  | 40.833  | ------  | 39.286  | 50.0    |
+friend  | 100.0   | 73.333  | 39.286  | ------  | 39.286  |
+ted     | 39.286  | 52.5    | 50.0    | 39.286  | ------  |
+--------|---------|---------|---------|---------|---------|
+somme   | 251.905 | 239.999 | 169.405 | 251.905 | 181.072 |
+moyenne | 62.976  | 60      | 42.351  | 62.976  | 45.268  |
+
+</pre>
+<p>
+    <strong>Input: </strong> Un message (chaîne de caractères) (unicode)
+</p>
+
+<p>
+    <strong>Output: </strong> Le mot-clé (string).
+</p>
+
+
+<div class="for_info_only">
+    <p>
+        <strong>Exemple:</strong>
+    </p>
+    <pre class="brush: python">
+find_word("Speak friend and enter.") == "friend"
+    </pre>
+</div>
+
+<p class="for_info_only">
+    <strong>Utilisation: </strong>
+    C'est un algorithme "fait-maison" que l'on peut modifier et utiliser en recherche linguistique
+    ou reconnaissance de motifs dans un texte.
+</p>
+
+<p>
+    <strong>Préconditions:</strong><br>
+    0 &lt; len(message)<br>
+    all(x in (string.ascii_letters + string.punctuation + " ") for x in message)
+</p>
